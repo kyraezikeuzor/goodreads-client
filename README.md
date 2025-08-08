@@ -18,8 +18,8 @@ import Goodreads from "goodreads-client";
 
 ### Get Book Information
 
-Fetch detailed information about a book using its ISBN:
-Usage: Goodreads.getBook(isbn13)
+Fetch detailed information about a book using its ISBN.
+Usage: Goodreads.getBook(isbn13).
 
 ```typescript
 try {
@@ -54,15 +54,14 @@ try {
     'Audiobook',
     'Romance',
     'Chick Lit'
-  ],
-  readAt: 'Nov 27, 2022'
+  ]
 }
 ```
 
 ### Get Bookshelf
 
-Retrieve books from a user's specific bookshelf:
-Usage: Goodreads.getBookshelf(isbn13, shelfName)
+Retrieve books from a user's specific bookshelf.
+Usage: Goodreads.getBookshelf(isbn13, shelfName).
 
 ```typescript
 try {
