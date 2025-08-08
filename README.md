@@ -2,13 +2,13 @@
 
 A TypeScript Goodreads book parser for Node.js that extracts book data and bookshelf information from Goodreads.
 
-## 📦 Installation
+## Installation
 
 ```bash
 npm install goodreads-client
 ```
 
-## 🚀 Usage
+## Usage
 
 First, import the library:
 
@@ -19,6 +19,7 @@ import Goodreads from "goodreads-client";
 ### Get Book Information
 
 Fetch detailed information about a book using its ISBN:
+Usage: Goodreads.getBook(isbn13)
 
 ```typescript
 try {
@@ -58,9 +59,10 @@ try {
 }
 ```
 
-### Get User Bookshelf
+### Get Bookshelf
 
 Retrieve books from a user's specific bookshelf:
+Usage: Goodreads.getBookshelf(isbn13, shelfName)
 
 ```typescript
 try {
@@ -99,7 +101,7 @@ Returns an array of book objects with the same structure as `getBook()`, plus a 
 ]
 ```
 
-## 🔍 Alternative Usage
+## Alternative Usage
 
 You can also search by ISBN13 directly:
 
@@ -107,7 +109,7 @@ You can also search by ISBN13 directly:
 const result = await Goodreads.getBook("1524759783");
 ```
 
-## 📋 Book Data Fields
+## Book Data Fields
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -133,7 +135,7 @@ This package includes full TypeScript definitions. The main types exported are:
 - `Book`: Individual book data structure
 - `Bookshelf`: Array of books from a user's shelf
 
-## ⚠Error Handling
+## Error Handling
 
 Always wrap API calls in try-catch blocks as the methods can throw errors for:
 - Invalid ISBNs
