@@ -39,10 +39,9 @@ export async function getBookshelf(
 
         if (isbn13.length > 1) {
           book = (await getBook(isbn13)) || null;
-          //console.log(isbn13);
 
           if (book) {
-            console.log(isbn13);
+            console.log("Grabbing book with ISBN: ", isbn13);
 
             readAt = document(element)
               .find("td.date_read div.value .date_read_value")

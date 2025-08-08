@@ -1,7 +1,14 @@
 import getBook from "./api/get-book";
 import getBookshelf from "./api/get-bookshelf";
 
-//export { getBook, getBookshelf };
+const Goodreads = {
+  getBook,
+  getBookshelf,
+};
+
+export default Goodreads;
+
+/*
 export async function test() {
   const bookshelf = await getBookshelf("130048134", "read");
   console.log(bookshelf);
@@ -10,3 +17,4 @@ export async function test() {
 test();
 
 export default test;
+*/
