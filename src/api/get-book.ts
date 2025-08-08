@@ -2,8 +2,9 @@ import * as cheerio from "cheerio";
 import { Book } from "../types";
 import axios from "axios";
 
-export async function getBook(isbn13: string): Promise<Book> {
+export async function getBook(isbn13: string): Promise<Book | null> {
   const searchUrl = `https://www.goodreads.com/search?q=${isbn13}`;
+  let book;
 
   try {
     const options = {
@@ -53,7 +54,7 @@ export async function getBook(isbn13: string): Promise<Book> {
     const language = bookContext.inLanguage || null;
 
     const genres = () => {
-      let genres = [];
+      let genres: string[] = [];
       const genresContainer = bookContainer.find("div[data-testid=genresList]");
       const genresList = genresContainer.find(
         "span.BookPageMetadataSection__genreButton"
@@ -70,8 +71,8 @@ export async function getBook(isbn13: string): Promise<Book> {
       return genres;
     };
 
-    const book: Book = {
-      url: url,
+    book = {
+      url: url || null,
       title: title,
       author: author,
       pubDate: pubDate,
@@ -92,6 +93,8 @@ export async function getBook(isbn13: string): Promise<Book> {
       `Couldn't fetch book with ISBN number ${isbn13}. (The ISBN number may be invalid). \nError:`,
       error.message
     );
+  } finally {
+    return book ? book : null;
   }
 }
 

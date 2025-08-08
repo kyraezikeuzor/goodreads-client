@@ -6,8 +6,9 @@ import axios from "axios";
 export async function getBookshelf(
   username: string,
   shelfType: string
-): Promise<Bookshelf> {
+): Promise<Bookshelf | null> {
   const searchUrl = `https://www.goodreads.com/review/list/${username}?&shelf=${shelfType}&per_page=infinite&utf8=%E2%9C%93`;
+  let books;
 
   try {
     const options = {
@@ -27,28 +28,28 @@ export async function getBookshelf(
 
     const booksContainer = document("#booksBody");
     const booksOnPage = booksContainer.find("tr.bookalike");
-    let books;
 
     books = await Promise.all(
       booksOnPage.map(async (_, element) => {
         const isbn13 =
           document(element).find("td.isbn13 div.value").text().trim() || "";
 
-        let book: Book;
+        let book: Book | null;
         let readAt: string;
 
         if (isbn13.length > 1) {
-          book = await getBook(isbn13);
+          book = (await getBook(isbn13)) || null;
           //console.log(isbn13);
 
           if (book) {
             console.log(isbn13);
 
-            readAt =
-              document(element)
-                .find("td.date_read div.value .date_read_value")
-                .text()
-                .trim() || null;
+            readAt = document(element)
+              .find("td.date_read div.value .date_read_value")
+              .text()
+              .trim();
+
+            readAt ? readAt : null;
 
             //const userRating = $(element).find('.stars').html() || 'No rating';
             //const userReview = $(element).find('td.review div.value').text().trim() || 'No review';
@@ -58,11 +59,11 @@ export async function getBookshelf(
               readAt: readAt,
             };
           }
+        } else {
+          return null;
         }
       })
     );
-
-    return books;
 
     //console.log(`Found ${books.length} books on ${shelfType} bookshelf.`);
   } catch (error: any) {
@@ -70,6 +71,8 @@ export async function getBookshelf(
       `Couldn't fetch ${shelfType} bookshelf from ${username}. \nError:`,
       error.message
     );
+  } finally {
+    return books ? books : null;
   }
 }
 

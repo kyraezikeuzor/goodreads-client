@@ -1,5 +1,5 @@
 export interface Book {
-  url: string;
+  url: string | null;
   title: string | null;
   author: string | null;
   pubDate: string | null;
@@ -11,10 +11,10 @@ export interface Book {
   ratingCount: number | null;
   reviewsCount: number | null;
   top10reviews?: string[] | null;
-  language: string | undefined;
+  language: string | null;
   genres: string[] | null;
 }
 
-export interface Bookshelf extends Book {
-  readAt: string;
-}[];
+export type Bookshelf =
+  | ((Book & { readAt: string | null }) | null | undefined)[]
+  | null;
