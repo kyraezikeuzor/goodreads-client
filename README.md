@@ -128,7 +128,7 @@ const result = await Goodreads.getBook("1524759783");
 | `genres` | `string[] \| null` | Array of genre tags |
 | `readAt` | `string \| null` | Date added to shelf (bookshelf only) |
 
-## 🛠️ TypeScript Support
+## TypeScript Support
 
 This package includes full TypeScript definitions. The main types exported are:
 
