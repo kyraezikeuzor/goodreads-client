@@ -61,7 +61,7 @@ try {
 ### Get Bookshelf
 
 Retrieve books from a user's specific bookshelf.
-Usage: Goodreads.getBookshelf(isbn13, shelfName).
+Usage: Goodreads.getBookshelf(userId, shelfName).
 
 ```typescript
 try {
