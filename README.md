@@ -100,14 +100,6 @@ Returns an array of book objects with the same structure as `getBook()`, plus a 
 ]
 ```
 
-## Alternative Usage
-
-You can also search by ISBN13 directly:
-
-```typescript
-const result = await Goodreads.getBook("1524759783");
-```
-
 ## Book Data Fields
 
 | Field | Type | Description |
