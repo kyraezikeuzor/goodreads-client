@@ -1,6 +1,6 @@
 {
   "name": "@kyraezikeuzor/goodreads-js",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "type": "module",
   "description": "Goodreads API client written in TypeScript",
   "main": "dist/index.js",
