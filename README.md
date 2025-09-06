@@ -5,7 +5,7 @@ A TypeScript Goodreads book parser for Node.js that extracts book data and books
 ## Installation
 
 ```bash
-npm install @kyraezikeuzor/goodreads-js
+npm install @kyraezikeuzor/goodreads.js
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm install @kyraezikeuzor/goodreads-js
 First, import the library:
 
 ```typescript
-import Goodreads from "@kyraezikeuzor/goodreads-js";
+import Goodreads from "@kyraezikeuzor/goodreads.js";
 ```
 
 ### Get Book Information
