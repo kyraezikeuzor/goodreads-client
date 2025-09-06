@@ -1,11 +1,11 @@
-# goodreads-client
+# Goodreads.js
 
 A TypeScript Goodreads book parser for Node.js that extracts book data and bookshelf information from Goodreads.
 
 ## Installation
 
 ```bash
-npm install goodreads-client
+npm install @kyraezikeuzor/goodreads-js
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm install goodreads-client
 First, import the library:
 
 ```typescript
-import Goodreads from "goodreads-client";
+import Goodreads from "@kyraezikeuzor/goodreads-js";
 ```
 
 ### Get Book Information
@@ -61,7 +61,6 @@ try {
 ### Get Bookshelf
 
 Retrieve books from a user's specific bookshelf.
-Usage: Goodreads.getBookshelf(userId, shelfName).
 
 ```typescript
 try {
